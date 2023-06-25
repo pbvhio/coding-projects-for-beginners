@@ -1,41 +1,47 @@
+// Variables of this website
 let minutes = 0; // Initial values for minutes
 let seconds = 0; // Initial values for seconds
+
 let countdownInterval; // Controller for running functions every second
 
 function decreaseMinutes() {
-  if (minutes > 0) {
     // ========== Finish below ==========
-    // minutes = xxx ;
+    minutes = minutes-1 ;
     // ========== Finish above ==========
     updateDisplay();
-  }
 }
 
 function increaseMinutes() {
   // ========== Finish below ==========
-  // minutes = xxx ;
+  minutes =  minutes+1;
   // ========== Finish above ==========
   updateDisplay();
 }
 
 function decreaseSeconds() {
-  if (seconds > 0) {
     // ========== Finish below ==========
-    // seconds = xxx ;
+    seconds = seconds-1 ;
     // ========== Finish above ==========
-  }
+    updateDisplay();
 }
 
 function increaseSeconds() {
-  // ========== Finish below ==========
-  // seconds = xxx ;
+  // ========== Finish below =========
+  seconds = seconds+1 ;
   // ========== Finish above ==========
   updateDisplay();
 }
 
 function updateDisplay() {
-  document.getElementById("minutes").textContent = padNumber(minutes);
-  document.getElementById("seconds").textContent = padNumber(seconds);
+  // convert the extra seconds into minutes
+  total = Math.max(0, seconds + 60 * minutes);
+  const realMinutes = Math.floor(total / 60);
+  const realSeconds = total % 60;
+  minutes = realMinutes;
+  seconds = realSeconds;
+
+  document.getElementById("minutes").textContent = padNumber(realMinutes);
+  document.getElementById("seconds").textContent = padNumber(realSeconds);
 }
 
 // Turns a number into string of the format: "XX"
@@ -71,6 +77,11 @@ function startCountdown() {
 function reset() {
   minutes = 0;
   seconds = 0;
+  // Stop the clock
   clearInterval(countdownInterval);
   updateDisplay();
+}
+
+function pause() {
+  // to be finished by Alec
 }
