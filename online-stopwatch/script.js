@@ -1,35 +1,39 @@
-let minutes = 0;
-let seconds = 0;
-let countdownInterval;
+let minutes = 0; // Initial values for minutes
+let seconds = 0; // Initial values for seconds
+let countdownInterval; // Controller for running functions every second
 
 function decreaseMinutes() {
   if (minutes > 0) {
-    minutes--;
+    // ========== Finish below ==========
+    // minutes = xxx ;
+    // ========== Finish above ==========
     updateDisplay();
   }
 }
 
 function increaseMinutes() {
-  minutes++;
+  // ========== Finish below ==========
+  // minutes = xxx ;
+  // ========== Finish above ==========
   updateDisplay();
 }
 
 function decreaseSeconds() {
   if (seconds > 0) {
-    seconds--;
-    updateDisplay();
+    // ========== Finish below ==========
+    // seconds = xxx ;
+    // ========== Finish above ==========
   }
 }
 
 function increaseSeconds() {
-  seconds++;
+  // ========== Finish below ==========
+  // seconds = xxx ;
+  // ========== Finish above ==========
   updateDisplay();
 }
 
 function updateDisplay() {
-  console.log(`To Update minutes: ${padNumber(minutes)}`);
-  console.log(`To Update seconds: ${padNumber(seconds)}`);
-
   document.getElementById("minutes").textContent = padNumber(minutes);
   document.getElementById("seconds").textContent = padNumber(seconds);
 }
@@ -40,22 +44,27 @@ function padNumber(number) {
 }
 
 function startCountdown() {
-  let totalSeconds = minutes * 60 + seconds;
+  // ========== Finish below ==========
+  // let totalSeconds = xxx ;
+  //
+  // ========== Finish above ==========
 
+  // This function will run every second
   countdownInterval = setInterval(() => {
-    // This function will run every second
     // ========== Finish below ==========
-    totalSeconds--;
+    //
+    //
+    // ========== Finish above ==========
 
     if (totalSeconds < 0) {
       clearInterval(countdownInterval);
       alert("Countdown completed!");
     } else {
-      minutes = Math.floor(totalSeconds / 60);
-      seconds = totalSeconds % 60;
-      updateDisplay();
+      // ========== Finish below ==========
+      //
+      //
+      // ========== Finish above ==========
     }
-    // ========== Finish above ==========
   }, 1000);
 }
 
