@@ -6,9 +6,9 @@ let countdownInterval; // Controller for running functions every second
 let clockExists = false; // boolean
 
 function decreaseMinutes() {
-    if (clockExists) return;
-    minutes = minutes - 1;
-    updateDisplay();
+  if (clockExists) return;
+  minutes = minutes - 1;
+  updateDisplay();
 }
 
 function increaseMinutes() {
@@ -18,9 +18,9 @@ function increaseMinutes() {
 }
 
 function decreaseSeconds() {
-    if (clockExists) return;
-    seconds = seconds - 1 ;
-    updateDisplay();
+  if (clockExists) return;
+  seconds = seconds - 1 ;
+  updateDisplay();
 }
 
 function increaseSeconds() {
