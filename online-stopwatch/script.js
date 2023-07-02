@@ -3,32 +3,29 @@ let minutes = 0; // Initial values for minutes
 let seconds = 0; // Initial values for seconds
 
 let countdownInterval; // Controller for running functions every second
+let clockExists = false; // boolean
 
 function decreaseMinutes() {
-    // ========== Finish below ==========
-    minutes = minutes-1 ;
-    // ========== Finish above ==========
+    if (clockExists) return;
+    minutes = minutes - 1;
     updateDisplay();
 }
 
 function increaseMinutes() {
-  // ========== Finish below ==========
+  if (clockExists) return;
   minutes =  minutes+1;
-  // ========== Finish above ==========
   updateDisplay();
 }
 
 function decreaseSeconds() {
-    // ========== Finish below ==========
-    seconds = seconds-1 ;
-    // ========== Finish above ==========
+    if (clockExists) return;
+    seconds = seconds - 1 ;
     updateDisplay();
 }
 
 function increaseSeconds() {
-  // ========== Finish below =========
+  if (clockExists) return;
   seconds = seconds+1 ;
-  // ========== Finish above ==========
   updateDisplay();
 }
 
@@ -50,38 +47,36 @@ function padNumber(number) {
 }
 
 function startCountdown() {
-  // ========== Finish below ==========
-  // let totalSeconds = xxx ;
-  //
-  // ========== Finish above ==========
+  let totalSeconds = minutes * 60 + seconds;                         
 
   // This function will run every second
-  countdownInterval = setInterval(() => {
-    // ========== Finish below ==========
-    //
-    //
-    // ========== Finish above ==========
+  if (clockExists) return;
 
-    if (totalSeconds < 0) {
-      clearInterval(countdownInterval);
+  // Create the clock
+  clockExists = true;
+  countdownInterval = setInterval(() => {
+    if (totalSeconds == 0) {
+      clearInterval(countdownInterval); // Don't run this anymore
       alert("Countdown completed!");
     } else {
-      // ========== Finish below ==========
-      //
-      //
-      // ========== Finish above ==========
+      seconds = seconds - 1 ;
+      updateDisplay();
     }
   }, 1000);
 }
 
 function reset() {
+  clockExists = false;
   minutes = 0;
   seconds = 0;
-  // Stop the clock
+  // Stop the clock 
   clearInterval(countdownInterval);
   updateDisplay();
 }
 
 function pause() {
-  // to be finished by Alec
+  // to be finished by Alec\ 
+  clockExists = false;
+  clearInterval(countdownInterval);
+  updateDisplay();
 }
