@@ -16,7 +16,13 @@ button {
   margin: 0 5px;
 }
 
+body {
+  background-repeat: no-repeat;
+  background-size:cover
+}
+
 #minutes,
 #seconds {
   font-size: 24px;
 }
+body  {color: #FFFFFF; }
