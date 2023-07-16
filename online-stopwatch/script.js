@@ -48,14 +48,7 @@ function padNumber(number) {
 
 function startCountdown() {
   // change the style of the button
-
-  // 1. find the time input block
-  const timeInputDiv = document.getElementById("time-input")
-  // 2. Change the class name to change the style
-  timeInputDiv.className = "time-input-running"
-
-
-  let totalSeconds = minutes * 60 + seconds;                         
+  changeTimeInputClassName("time-input-running")
 
   // This function will run every second
   if (clockExists) return;
@@ -63,22 +56,21 @@ function startCountdown() {
   // Create the clock
   clockExists = true;
   countdownInterval = setInterval(() => {
-    if (totalSeconds == 0) {
+    let totalSeconds = minutes * 60 + seconds;  
+
+    if (totalSeconds <= 0) {
       clearInterval(countdownInterval); // Don't run this anymore
       alert("Countdown completed!");
+      reset();
     } else {
       seconds = seconds - 1;
-      
       updateDisplay();
     }
   }, 1000);
 }
 
 function reset() {
-  // 1. find the time input block
-  const timeInputDiv = document.getElementById("time-input")
-  // 2. Change the class name to change the style
-  timeInputDiv.className = "time-input-running"
+  changeTimeInputClassName("time-input-stop")
 
   clockExists = false;
   minutes = 0;
@@ -89,13 +81,14 @@ function reset() {
 }
 
 function pause() {
-  // 1. find the time input block
-  const timeInputDiv = document.getElementById("time-input")
-  // 2. Change the class name to change the style
-  timeInputDiv.className = "time-input-running"
-  
-  // to be finished by Alec\ 
+  changeTimeInputClassName("time-input-stop")
+
   clockExists = false;
   clearInterval(countdownInterval);
   updateDisplay();
+}
+
+function changeTimeInputClassName(name) {
+  const timeInputDiv = document.getElementById("time-input")
+  timeInputDiv.className = name
 }
