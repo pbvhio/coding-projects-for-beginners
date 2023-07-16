@@ -47,6 +47,14 @@ function padNumber(number) {
 }
 
 function startCountdown() {
+  // change the style of the button
+
+  // 1. find the time input block
+  const timeInputDiv = document.getElementById("time-input")
+  // 2. Change the class name to change the style
+  timeInputDiv.className = "time-input-running"
+
+
   let totalSeconds = minutes * 60 + seconds;                         
 
   // This function will run every second
@@ -59,13 +67,19 @@ function startCountdown() {
       clearInterval(countdownInterval); // Don't run this anymore
       alert("Countdown completed!");
     } else {
-      seconds = seconds - 1 ;
+      seconds = seconds - 1;
+      
       updateDisplay();
     }
   }, 1000);
 }
 
 function reset() {
+  // 1. find the time input block
+  const timeInputDiv = document.getElementById("time-input")
+  // 2. Change the class name to change the style
+  timeInputDiv.className = "time-input-running"
+
   clockExists = false;
   minutes = 0;
   seconds = 0;
@@ -75,6 +89,11 @@ function reset() {
 }
 
 function pause() {
+  // 1. find the time input block
+  const timeInputDiv = document.getElementById("time-input")
+  // 2. Change the class name to change the style
+  timeInputDiv.className = "time-input-running"
+  
   // to be finished by Alec\ 
   clockExists = false;
   clearInterval(countdownInterval);

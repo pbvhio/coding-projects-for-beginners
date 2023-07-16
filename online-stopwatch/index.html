@@ -4,11 +4,12 @@
     <title>Online Stopwatch</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body background="The_Earth_seen_from_Apollo_17.jpg">
+  <body background="alien-top-bg.png">
     <div class="container">
       <h1>Online Stopwatch</h1>
-      <div class="time-input">
-        <span id="minutes">00</span> :
+      <div id="time-input" class="time-input-stop">
+        <span id="minutes">00</span> 
+        <span id="time-seperator">:</span> 
         <span id="seconds">00</span>
       </div>
       <div class="button-row">
@@ -21,9 +22,11 @@
         <button class="button-plus"  onclick="increaseSeconds()">+</button>
         <button class="button-minus"onclick="decreaseSeconds()">-</button>
       </div>
-      <button onclick="startCountdown()">Start Countdown</button>
-      <button onclick="pause()">Pause</button>
-      <button onclick="reset()">Reset</button>
+      <div class="control-button-row">
+        <button onclick="startCountdown()">Start Countdown</button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="reset()">Reset</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
