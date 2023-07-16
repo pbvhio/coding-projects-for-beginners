@@ -11,6 +11,28 @@ h1 {
   margin-bottom: 20px;
 }
 
+.button-plus {
+  color: black;
+  background-color: #FFFFFF;
+  border: none;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%; /* set the border radius to 10 pixels */
+}
+
+.button-minus {
+  color: #FFFFFF;
+  background-color: black;
+  border: none;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%; /* set the border radius to 10 pixels */
+}
+.button-row {
+  margin: 10px;
+}
+
+
 button {
   padding: 5px 10px;
   margin: 0 5px;
