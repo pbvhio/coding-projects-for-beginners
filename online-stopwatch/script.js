@@ -5,9 +5,6 @@ let seconds = 0; // Initial values for seconds
 let countdownInterval; // Controller for running functions every second
 let clockExists = false; // boolean
 
-// alarm audio blkock
-const alarm = document.getElementById('alarm-audio');
-
 function decreaseMinutes() {
   if (clockExists) return;
   minutes = minutes - 1;
@@ -49,10 +46,10 @@ function padNumber(number) {
   return number.toString().padStart(2, "0");
 }
 
-function startCountdown() {
+function startCountdown() {6
   // change the style of the button
   changeTimeInputClassName("time-input-running")
-
+6
   // This function will run every second
   if (clockExists) return;
 
@@ -103,4 +100,19 @@ function pause() {
 function changeTimeInputClassName(name) {
   const timeInputDiv = document.getElementById("time-input")
   timeInputDiv.className = name
+}
+
+
+// start the alarm sound
+function playAlarm() {
+  // locate the alarm audio block
+  const alarm = document.getElementById('alarm-audio');
+  alarm.play();
+}
+
+// pause the alarm sound
+function pauseAlarm() {
+  // locate the alarm audio block
+  const alarm = document.getElementById('alarm-audio');
+  alarm.pause();
 }
