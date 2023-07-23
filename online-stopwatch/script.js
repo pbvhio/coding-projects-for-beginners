@@ -46,10 +46,10 @@ function padNumber(number) {
   return number.toString().padStart(2, "0");
 }
 
-function startCountdown() {6
+function startCountdown() {
   // change the style of the button
   changeTimeInputClassName("time-input-running")
-6
+
   // This function will run every second
   if (clockExists) return;
 
@@ -69,7 +69,7 @@ function startCountdown() {6
 
 function onTimesUp() {
   changeTimeInputClassName("time-input-times-up")
-
+  playAlarm();
   clockExists = false;
   minutes = 0;
   seconds = 0;
@@ -80,7 +80,7 @@ function onTimesUp() {
  
 function reset() {
   changeTimeInputClassName("time-input-stop")
-
+  pauseAlarm();
   clockExists = false;
   minutes = 0;
   seconds = 0;
@@ -92,6 +92,7 @@ function reset() {
 function pause() {
   changeTimeInputClassName("time-input-stop")
 
+  pauseAlarm()
   clockExists = false;
   clearInterval(countdownInterval);
   updateDisplay();
@@ -112,6 +113,7 @@ function playAlarm() {
 
 // pause the alarm sound
 function pauseAlarm() {
+  console.log("Puasing audio...")
   // locate the alarm audio block
   const alarm = document.getElementById('alarm-audio');
   alarm.pause();
