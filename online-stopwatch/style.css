@@ -12,16 +12,13 @@ h1 {
 }
 
 .time-input-stop {
-  border: black;
   margin-bottom: 20px;
   border: 1px solid black;
   background-color: greenyellow;
   width: 100px;
 }
 
-/* To do */
 .time-input-running {
-  border: black;
   margin-bottom: 20px;
   border: 1px solid black;
   background-color: black;
@@ -29,14 +26,17 @@ h1 {
 
 }
 
-/* To do */
-.time-input-time-up {
-
+/* Homework */
+.time-input-times-up {
+  background-color: red;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  width: 100px;
 }
 
 .button-plus {
-  color: black;
-  background-color: #FFFFFF;
+  color: rgb(255, 255, 255);
+  background-color: #000000;
   border: none;
   height: 26px;
   width: 26px;
@@ -44,8 +44,8 @@ h1 {
 }
 
 .button-minus {
-  color: #FFFFFF;
-  background-color: black;
+  color: #000000;
+  background-color: rgb(255, 255, 255);
   border: none;
   height: 26px;
   width: 26px;

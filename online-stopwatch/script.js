@@ -59,9 +59,7 @@ function startCountdown() {
     let totalSeconds = minutes * 60 + seconds;  
 
     if (totalSeconds <= 0) {
-      clearInterval(countdownInterval); // Don't run this anymore
-      alert("Countdown completed!");
-      reset();
+      onTimesUp()
     } else {
       seconds = seconds - 1;
       updateDisplay();
@@ -69,6 +67,17 @@ function startCountdown() {
   }, 1000);
 }
 
+function onTimesUp() {
+  changeTimeInputClassName("time-input-times-up")
+
+  clockExists = false;
+  minutes = 0;
+  seconds = 0;
+  // Stop the clock 
+  clearInterval(countdownInterval);
+  updateDisplay();
+}
+ 
 function reset() {
   changeTimeInputClassName("time-input-stop")
 
