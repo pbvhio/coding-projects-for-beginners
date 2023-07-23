@@ -83,6 +83,9 @@ body {
 
 #minutes,
 #seconds {
-  font-size: 24px;
+  font-size: 28px;
 }
-body  {color: #ffffff; }
+body  {
+  color: #ffffff;
+  text-shadow: #070067 1px 0 10px;
+}

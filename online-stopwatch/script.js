@@ -5,6 +5,9 @@ let seconds = 0; // Initial values for seconds
 let countdownInterval; // Controller for running functions every second
 let clockExists = false; // boolean
 
+// alarm audio blkock
+const alarm = document.getElementById('alarm-audio');
+
 function decreaseMinutes() {
   if (clockExists) return;
   minutes = minutes - 1;
