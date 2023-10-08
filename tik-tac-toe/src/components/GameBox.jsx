@@ -1,6 +1,9 @@
 import React from "react";
 
-export default function GameBox({ value, onClick }) {
+export default function GameBox(props) {
+  const { value, onClick } = props;
+  console.log(value)
+
   return (
     <div
       onClick={value === "" ? onClick : null}
@@ -12,6 +15,8 @@ export default function GameBox({ value, onClick }) {
         alignItems: "center",
         justifyContent: "center",
         cursor: value === "" ? "pointer" : "default",
+        margin:"10px",
+        fontSize: "70px"
       }}
     >
       {value}

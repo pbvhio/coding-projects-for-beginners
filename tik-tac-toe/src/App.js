@@ -3,13 +3,15 @@ import "./App.css";
 import GameBox from "./components/GameBox";
 
 const initialGame = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
+  ["o", "", ""],
+  ["", "x", "o"],
+  ["", "x", "x"],
 ];
 
 function App() {
   const [game, setGame] = useState(initialGame);
+
+  console.log(game)
   const [currentUser, setCurrentUser] = useState("x");
 
   const handleClick = (row, column) => {
@@ -35,11 +37,17 @@ function App() {
         <GameBox value={game[0][1]} onClick={() => handleClick(0, 1)} />
         <GameBox value={game[0][2]} onClick={() => handleClick(0, 2)} />
       </div>
+
+
+
       <div style={{ display: "flex" }}>
         <GameBox value={game[1][0]} onClick={() => handleClick(1, 0)} />
         <GameBox value={game[1][1]} onClick={() => handleClick(1, 1)} />
         <GameBox value={game[1][2]} onClick={() => handleClick(1, 2)} />
       </div>
+
+
+
       <div style={{ display: "flex" }}>
         <GameBox value={game[2][0]} onClick={() => handleClick(2, 0)} />
         <GameBox value={game[2][1]} onClick={() => handleClick(2, 1)} />
