@@ -1,11 +1,23 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./images/alien-top-bg.png");
+  background-size: 100% auto;
 }
 
 .pe {
-  font-size: 50px
+  font-size: 50px;
+  margin-bottom: 20px;
 }
 
+.text {
+  background-color: #ffffff;
+}
+
+.peter {
+  margin-bottom: 20px;
+}
 .cal-button {
-  
+  margin-bottom: 20px;
 }
