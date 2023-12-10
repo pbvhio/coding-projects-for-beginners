@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 import GameBox from "./components/GameBox";
+import { checkTikTacToeWinner } from "./utils/checkTicTacToeWinner";
+import GameModal from "./components/GameModal";
 
 const initialGame = [
   ["o", "", ""],
@@ -14,15 +16,24 @@ function App() {
   console.log(game)
   const [currentUser, setCurrentUser] = useState("x");
 
-  const handleClick = (row, column) => {
-    alert(`Clicked row ${row} and column ${column}`);
+  function handleClick(row, column) {
+    // Task 1: Update the Game box
+    setGame((game) => {
+      const newGame = JSON.parse(JSON.stringify(game)); // Copy existing game to newGame
+      newGame[row][column] = currentUser; // Update the target game box
+      return newGame;
+    });
 
-    // Task 1: Switch user
+    // Task 2: Switch user
+    setCurrentUser((user) => (user === "x" ? "o" : "x"));
+  }
 
-    // Task 2: Update the game
+  function reset() {
+    setCurrentUser("x");
+    setGame(initialGame);
+  }
 
-    // Task 3: Check for the winner
-  };
+  const winner = checkTikTacToeWinner(game);
 
   return (
     <div className="App">
@@ -31,6 +42,8 @@ function App() {
       <div
         style={{ fontSize: "20px", padding: "20px 0px 50px 0px" }}
       >{`Now is ${currentUser}'s turn:`}</div>
+
+      <GameModal winner={winner} reset={reset} />
 
       <div style={{ display: "flex" }}>
         <GameBox value={game[0][0]} onClick={() => handleClick(0, 0)} />
