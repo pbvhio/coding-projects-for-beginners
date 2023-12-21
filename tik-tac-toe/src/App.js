@@ -5,15 +5,13 @@ import { checkTikTacToeWinner } from "./utils/checkTicTacToeWinner";
 import GameModal from "./components/GameModal";
 
 const initialGame = [
-  ["o", "", ""],
-  ["", "x", "o"],
-  ["", "x", "x"],
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
 ];
 
 function App() {
   const [game, setGame] = useState(initialGame);
-
-  console.log(game)
   const [currentUser, setCurrentUser] = useState("x");
 
   function handleClick(row, column) {
